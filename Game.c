@@ -9,7 +9,7 @@ int lanes=4;
 int pozE, laneP,laneE;
 laneE= rand()%4;laneP=3;pozE=0;
 int i,j;
-char key;
+char key;int speed=100;
 int score; score=0;
 while(1){
         system("cls");
@@ -50,9 +50,16 @@ while(1){
             laneP-=1;
         if(key=='d'&&laneP<lanes-1)
             laneP+=1;
+         if(key=='s'&&speed<400)
+            speed+=100;
+            if(key=='w'&&speed>0)
+            speed-=100;
 
     }
-    printf("SCORE:%d",score);
-    Sleep(100);
+    printf("SCORE:%d\n",score);
+    printf("SPEED Restriction:-%d",speed);
+    Sleep(speed);
 }
 return 0;
+}
+
